@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .downX {
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 30px 30px;
+            border-color: #0000ff transparent transparent;
+        }
+        
+        .downX.red {
+            border-color: #ff0000 transparent transparent;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>
+        <div id="downx" class="downX"></div>
+    </p>
+    <p>
+        <a href="javascript:alert(1)" id="atest">呵呵哒</a>
+    </p>
+    <button id="btn">
+        test
+    </button>
+    <script type="text/javascript" src="jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="untitled.js"></script>
+
+</body>
+<script>
+    $(function() {
+        var fun1 = function() {
+            console.log("myClick");
+        }
+
+        $("#btn").on("myClick.temp", fun1);
+
+
+
+        $("#btn").on("myClick2", function() {
+            console.log("myClick2");
+        });
+
+        //console.log($("#btn").on("myClick"));
+
+        $("#btn").on("click", function(event) {
+
+
+            // console.log(result);
+            //var rest = $("#btn").triggerHandler("myClick");
+            //console.log($("#btn"));
+            //console.log($("#btn")[0]);
+        });
+
+        //var result = $.data("#btn", "events");
+        console.log($.event.global);
+        console.log($._data);
+        console.log($._data($("#btn")[0], "events"));
+    });
+</script>
+
+</html>
