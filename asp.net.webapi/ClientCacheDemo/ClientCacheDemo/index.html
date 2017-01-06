@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Cache Demo</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <p><button id="cache1-btn">cache1 click!</button></p>
+    <p><button id="cache2-btn">cache2 click!</button></p>
+    <script src="Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $("#cache1-btn").on('click', function (event) {
+                $.get('http://10.1.26.83:5190/api/CachePuclic', function (data, textStatus, jqXHR) {
+                    console.log("CachePublic:" + data);
+                }, 'json');
+            });
+
+            $("#cache2-btn").on('click', function (event) {
+                $.get('http://10.1.26.83:5190/api/CachePublicAndExpires', function (data, textStatus, jqXHR) {
+                    console.log("CachePublicAndExpries:" + data);
+                }, 'json');
+            });
+        });
+    </script>
+</body>
+</html>
