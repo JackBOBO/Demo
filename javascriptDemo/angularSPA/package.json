@@ -1,0 +1,27 @@
+{
+  "name": "angular-spa",
+  "version": "1.0.0",
+  "description": "angular spa demo",
+  "main": "default.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jackbobo",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.2.27",
+    "angular-async-loader": "1.2.1",
+    "angular-cookies": "1.2.27",
+    "angular-ui-router": "0.2.18",
+    "angular-ui-tree": "2.15.0",
+    "bootstrap": "3.3.6",
+    "es5-shim": "4.5.7",
+    "html5shiv": "3.7.3",
+    "jquery": "1.12.3",
+    "requirejs": "2.1.21",
+    "urijs": "1.17.1"
+  },
+  "devDependencies": {
+    "angular-animate": "^1.6.1"
+  }
+}
