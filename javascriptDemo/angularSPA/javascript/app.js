@@ -9,17 +9,24 @@ myModule.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
         .state("main.documents", {
             url: "/documents",
             templateUrl: "register/documents.html",
+            controller: function() {
+                this.message = "this Function Used templateUrl!";
+            },
+            controllerAs: 'centerData',
             onEnter: function() {
                 console.log('in main.documents view');
             },
             onExit: function() {
                 console.log('out main.documents view');
-            },
-            data: { message: "test message!" }
+            }
         })
         .state("main.about", {
             url: "/about",
-            template: "<p><h1>this About!</h1></p><p><h1>this Function Used Template!</h1></p>",
+            template: "<p><h1>{{name}}</h1></p><p><h1>{{description}}</h1></p>",
+            controller: function($scope) {
+                $scope.name = "this About!";
+                $scope.description = "this Function Used Template!";
+            }
         })
         .state("main.multiview", {
             url: "/multiview",
@@ -36,10 +43,64 @@ myModule.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
             url: "/statebind",
             templateUrl: "register/statebind.html"
         })
+        .state("main.resolveexample", {
+            url: "resolveexample",
+            templateProvider: function() {
+                return "<p><h1>this Resolve!</h1></p><p><h3>{{simple}}</h3></p>";
+            },
+            resolve: {
+                simpleObj: function() {
+                        return { value: "ths Function Used Resolve!" };
+                    }
+                    // promiseObj: function($http) {
+                    //     return $http({ methods: 'GET', url: '/someUrl' });
+                    // },
+                    // promiseObj2: function($http) {
+                    //     return $http({ method: 'GET', url: '/someUrl' })
+                    //         .then(function(data) {
+                    //             return doSomeStuffFirst(data);
+                    //         });
+                    // },
+                    // translations: "translations",
+                    // translations2: function(translations, $stateParams) {
+                    //     return translations.getLang($stateParams.lang);
+                    // },
+                    // greeting: function($q, $timeout) {
+                    //     var deferred = $q.defer();
+                    //     $timeout(function() {
+                    //         deferred.resolve('Hello!');
+                    //     }, 1000);
+
+                //     return deferred.promise;
+                // },
+            },
+            controller: function($scope, simpleObj) {
+                //, promiseObj, promiseObj2, translations, translations2, greeting
+                $scope.simple = simpleObj.value;
+
+                // You can be sure that promiseObj is ready to use!
+                // $scope.items = promiseObj.data.items;
+                // $scope.items = promiseObj2.items;
+
+                // $scope.title = translations.getLang("english").title;
+                // $scope.title = translations2.title;
+
+                // $scope.greeting = greeting;
+            }
+        })
+        .state("main.statedata", {
+            url: "/statedata",
+            templateUrl: "register/statedata.html",
+            data: {
+                name: "this State Data!",
+                description: "this Function Used StateData!"
+            }
+        })
         .state("errorMain", {
             url: "/errorMain",
             template: "<p><h1>not find view!</h1> </p>"
         });
+
 
     //$urlRouterProvider.when('', '/inbox');
     $urlRouterProvider.otherwise('/errorMain');
@@ -61,4 +122,10 @@ myModule.controller("mainController", ["$scope", function($scope) {
             console.log('$viewContentLoaded');
         });
 
+    $scope.$on('$stateChangeStart', function(event, toState) {
+        if (toState && toState.data && toState.data.name && toState.data.description) {
+            var message = toState.data.name + " " + toState.data.description;
+            console.log(message);
+        }
+    })
 }]);
