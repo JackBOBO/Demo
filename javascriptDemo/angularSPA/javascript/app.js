@@ -4,11 +4,18 @@ myModule.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
     $stateProvider.state("main", {
             url: "/main",
             templateUrl: "register/main.html",
-            controller: "mainController"
+            controller: "mainController",
         })
         .state("main.documents", {
             url: "/documents",
-            templateUrl: "register/documents.html"
+            templateUrl: "register/documents.html",
+            onEnter: function() {
+                console.log('in main.documents view');
+            },
+            onExit: function() {
+                console.log('out main.documents view');
+            },
+            data: { message: "test message!" }
         })
         .state("main.about", {
             url: "/about",
@@ -28,9 +35,14 @@ myModule.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
         .state("main.statebind", {
             url: "/statebind",
             templateUrl: "register/statebind.html"
+        })
+        .state("errorMain", {
+            url: "/errorMain",
+            template: "<p><h1>not find view!</h1> </p>"
         });
 
-    $urlRouterProvider.otherwise('/form/required');
+    //$urlRouterProvider.when('', '/inbox');
+    $urlRouterProvider.otherwise('/errorMain');
 }]);
 
 myModule.controller("mainController", ["$scope", function($scope) {
@@ -38,4 +50,15 @@ myModule.controller("mainController", ["$scope", function($scope) {
     $scope.submit = function() {
         alert("Cool, you have registered!");
     };
+
+    $scope.$on('$viewContentLoading',
+        function(event, viewConfig) {
+            console.log('$viewContentLoading');
+        });
+
+    $scope.$on('$viewContentLoaded',
+        function(event, viewConfig) {
+            console.log('$viewContentLoaded');
+        });
+
 }]);
