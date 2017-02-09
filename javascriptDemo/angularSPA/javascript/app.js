@@ -7,9 +7,14 @@ myModule.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
             controller: "mainController",
         })
         .state("main.documents", {
-            url: "/documents",
+            //#/main/documents/:111/:222
+            //url: "/documents/:p1/:p2",
+            //#/main/documents?p1=11111&p2=2222
+            //url: "/documents?p1&p2",
+            url: "/document/{p1}{p2}",
             templateUrl: "register/documents.html",
-            controller: function() {
+            controller: function($stateParams) {
+                debugger;
                 this.message = "this Function Used templateUrl!";
             },
             controllerAs: 'centerData',
