@@ -322,3 +322,6 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
+
+#visual studio code 
+.vscode
