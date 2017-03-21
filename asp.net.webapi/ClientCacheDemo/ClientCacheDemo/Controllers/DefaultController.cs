@@ -25,6 +25,7 @@ namespace ClientCacheDemo.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, DateTime.Now.ToBinary());
             response.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue();
             response.Headers.CacheControl.Public = true;
+            
             //response.Content.Headers.Expires = DateTimeOffset.Now.AddDays(20);
 
             return response;
