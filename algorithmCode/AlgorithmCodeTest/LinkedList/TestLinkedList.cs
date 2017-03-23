@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlgorithmCode.LinkedList;
 
-namespace AlgorithmCodeTest
+namespace AlgorithmCodeTest.LinkedList
 {
     [TestClass]
     public class TestLinkedList

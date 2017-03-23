@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgorithmCode.TowSum
+namespace AlgorithmCode.Array
 {
     public class HashMapTowSum
     {
@@ -22,7 +22,7 @@ namespace AlgorithmCode.TowSum
         {
             foreach (var it in hm)
             {
-                int val = it.Value;
+                int val = it.Key;
                 if (hm.ContainsKey(target - val))
                 {
                     bool isDouble = target == val * 2;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgorithmCode.TowSum
+namespace AlgorithmCode.Array
 {
     public class TowSum
     {
@@ -32,6 +32,30 @@ namespace AlgorithmCode.TowSum
                 else
                 {
                     i++;
+                }
+            }
+
+            return result;
+        }
+
+        public static int[] HasMapSum(int[] arr, int target)
+        {
+            int[] result = { 0, 0 };
+
+            if (arr == null || arr.Length < 2)
+                return result;
+
+            Dictionary<int, int> hm = new Dictionary<int, int>();
+            for (int i = 0; i < arr.Length; i++)
+                hm.Add(arr[i], i);
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (hm.ContainsKey(target - arr[i]) && target != arr[i] * 2)
+                {
+                    result[0] = i;
+                    result[1] = hm[target - arr[i]];
+                    break;
                 }
             }
 
