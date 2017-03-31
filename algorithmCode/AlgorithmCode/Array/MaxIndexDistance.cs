@@ -34,14 +34,11 @@ namespace AlgorithmCode.Array
                     continue;
                 }
 
-                while (arr[j] < arr[i] && j > i)
-                {
+                while (arr[j] <= arr[i] && j > i)
                     j--;
-                    if ((j - i) > maxDist)
-                    {
-                        maxDist = j - i;
-                    }
-                }
+
+                if ((j - i) > maxDist)
+                    maxDist = j - i;
 
                 i--;
             }
