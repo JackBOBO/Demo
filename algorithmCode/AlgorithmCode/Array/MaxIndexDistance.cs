@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlgorithmCode.Array
 {
+    /// <summary>
+    /// 最大下标
+    /// </summary>
     public class MaxIndexDistance
     {
         public static int Run(int[] arr)

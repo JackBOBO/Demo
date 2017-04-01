@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Array\CheckPairable.cs" />
     <Compile Include="Array\Interval.cs" />
     <Compile Include="Array\MaxIndexDistance.cs" />
     <Compile Include="LinkedList\ListNode.cs" />

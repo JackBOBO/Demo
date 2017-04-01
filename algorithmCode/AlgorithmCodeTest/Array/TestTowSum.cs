@@ -4,6 +4,9 @@ using AlgorithmCode.Array;
 
 namespace AlgorithmCodeTest.Array
 {
+    /// <summary>
+    /// 两数之和
+    /// </summary>
     [TestClass]
     public class TestTowSum
     {

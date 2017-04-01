@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlgorithmCode.Array
 {
+    /// <summary>
+    /// 两数之和
+    /// </summary>
     public class TowSum
     {
         public static bool HasSum(int[] arr, int target)
@@ -25,7 +28,7 @@ namespace AlgorithmCode.Array
                     result = true;
                     break;
                 }
-                else if (output[i] + output[j] == target)
+                else if (output[i] + output[j] > target)
                 {
                     j--;
                 }

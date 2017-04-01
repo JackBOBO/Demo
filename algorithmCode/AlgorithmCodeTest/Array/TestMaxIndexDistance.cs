@@ -4,7 +4,9 @@ using AlgorithmCode.Array;
 
 namespace AlgorithmCodeTest.Array
 {
-
+    /// <summary>
+    /// 最大下标
+    /// </summary>
     [TestClass]
     public class TestMaxIndexDistance
     {

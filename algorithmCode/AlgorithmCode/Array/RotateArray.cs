@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlgorithmCode.Array
 {
+    /// <summary>
+    /// 数组旋转
+    /// </summary>
     public class RotateArray
     {
         public static int[] RotateK(int[] arr, int k)

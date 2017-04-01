@@ -52,6 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Array\TestCheckPairable.cs" />
     <Compile Include="Array\TestInterval.cs" />
     <Compile Include="Array\TestMaxIndexDistance.cs" />
     <Compile Include="Array\TestTowSum.cs" />

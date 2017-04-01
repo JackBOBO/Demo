@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlgorithmCode.Array
 {
+    /// <summary>
+    /// 两数之和
+    /// </summary>
     public class HashMapTowSum
     {
         private Dictionary<int, int> hm = new Dictionary<int, int>();

@@ -5,6 +5,9 @@ using AlgorithmCode.Array;
 
 namespace AlgorithmCodeTest.Array
 {
+    /// <summary>
+    /// 数组旋转
+    /// </summary>
     [TestClass]
     public class TestRotateArray
     {
