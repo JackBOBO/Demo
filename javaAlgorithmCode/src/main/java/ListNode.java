@@ -14,7 +14,7 @@ public class ListNode {
     ListNode(int val,ListNode next)
     {
         this.val = val;
-        this.next = null;
+        this.next = next;
     }
 
     public static ListNode mergeTowList(ListNode l1,ListNode l2) {
@@ -23,7 +23,7 @@ public class ListNode {
 
         while (l1 != null && l2 != null)
         {
-            if (l1.val < l2.val)
+            if (l1.val <= l2.val)
             {
                 cur.next = l1;
                 l1 = l1.next;
@@ -32,6 +32,8 @@ public class ListNode {
                 cur.next = l2;
                 l2 = l2.next;
             }
+
+            cur = cur.next;
         }
 
         if (l1 != null)
@@ -42,6 +44,37 @@ public class ListNode {
             cur.next = l2;
         }
 
-        return cur;
+        return dummy.next;
+    }
+
+    public static int getCircleLength(ListNode head) {
+        ListNode slow = head;
+        if (slow == null || slow.next == null)
+            return 0;
+
+        ListNode fast = head.next.next;
+        while (fast != null && fast.next != null)
+        {
+            if (fast == slow)
+                return getLength(slow);
+
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return 0;
+    }
+
+    private static int getLength(ListNode node){
+        int length = 1;
+        ListNode curr = node;
+
+        while (curr.next != node)
+        {
+            length ++;
+            curr = curr.next;
+        }
+
+        return length;
     }
 }
