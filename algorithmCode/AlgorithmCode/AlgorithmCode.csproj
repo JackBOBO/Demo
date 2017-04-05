@@ -47,6 +47,7 @@
     <Compile Include="Array\ClosetBigger.cs" />
     <Compile Include="Array\Interval.cs" />
     <Compile Include="Array\MaxIndexDistance.cs" />
+    <Compile Include="Array\TopKI.cs" />
     <Compile Include="LinkedList\ListNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

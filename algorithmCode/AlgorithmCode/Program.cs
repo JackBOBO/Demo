@@ -11,6 +11,8 @@ namespace AlgorithmCode
     {
         static void Main(string[] args)
         {
+            int[] inputs = { 5, 7, 3, 1, 2 };
+            TopKI.getTopK(inputs, 3);
         }
     }
 }
