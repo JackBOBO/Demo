@@ -52,14 +52,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Array\TestCheckPairable.cs" />
-    <Compile Include="Array\TestClosetBigger.cs" />
-    <Compile Include="Array\TestInterval.cs" />
-    <Compile Include="Array\TestMaxIndexDistance.cs" />
-    <Compile Include="Array\TestTowSum.cs" />
-    <Compile Include="Array\TestRotateArray.cs" />
+    <Compile Include="Array\ArrayHandleTest.cs" />
     <Compile Include="LinkedList\TestLinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sort\SortHandleTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AlgorithmCode\AlgorithmCode.csproj">
