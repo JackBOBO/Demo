@@ -7,6 +7,29 @@ import static org.junit.Assert.*;
  */
 public class ListNodeTest {
     @Test
+    public void reverseKGroup() throws Exception {
+        ListNode input = new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(4,new ListNode(5)))));
+        ListNode output = new ListNode(2,new ListNode(1,new ListNode(4,new ListNode(3,new ListNode(5)))));
+
+        ListNode res = ListNode.reverseKGroup(input,2);
+
+        boolean isOK = true;
+        while (output != null)
+        {
+            if (output.val != res.val)
+            {
+                isOK = false;
+                break;
+            }
+
+            output = output.next;
+            res = res.next;
+        }
+
+        assertEquals("reverseKGroup",true,isOK);
+    }
+
+    @Test
     public void addTowNumber() throws Exception {
         ListNode input1 = new ListNode(2,new ListNode(4,new ListNode(6)));
         ListNode input2 = new ListNode(5,new ListNode(6,new ListNode(4)));
@@ -26,6 +49,8 @@ public class ListNodeTest {
             res = res.next;
             output = output.next;
         }
+
+        assertEquals("",true,isOK);
     }
 
     @Test

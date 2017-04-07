@@ -5,14 +5,12 @@ public class ListNode {
     int val;
     ListNode next;
 
-    ListNode(int val)
-    {
+    ListNode(int val){
         this.val = val;
         this.next = null;
     }
 
-    ListNode(int val,ListNode next)
-    {
+    ListNode(int val,ListNode next){
         this.val = val;
         this.next = next;
     }
@@ -72,7 +70,7 @@ public class ListNode {
     }
 
     /**
-     * 倒置一个链表
+     * 反转链表
      */
     public static ListNode reverse(ListNode head){
         if (head == null || head.next == null)
@@ -87,7 +85,8 @@ public class ListNode {
     }
 
     /*
-    * 两数相加*/
+    * 两数相加
+    * */
     public static ListNode addTowNumber(ListNode l1,ListNode l2){
         ListNode iter1 = l1,iter2 = l2;
         ListNode list=null ,tail =null;
@@ -121,6 +120,9 @@ public class ListNode {
         return list;
     }
 
+    /*
+    * 获取链表长度
+    * */
     private static int getLength(ListNode node){
         int length = 1;
         ListNode curr = node;
@@ -132,5 +134,51 @@ public class ListNode {
         }
 
         return length;
+    }
+
+    /*
+    * 分组反转链表
+    * */
+    public static ListNode reverseKGroup(ListNode head,int k){
+        if (head == null || k<= 1)
+            return head;
+
+        ListNode dummy = new ListNode(0,head);
+        ListNode pre = dummy,cross = head;
+
+        int count =0;
+        while (cross != null){
+            count++;
+            if (count % k == 0)
+            {
+                pre = reverse(pre,cross.next);
+                cross.next = pre;
+            }
+            else
+            {
+                cross = cross.next;
+            }
+        }
+
+        return dummy.next;
+    }
+
+    /*
+    *
+    * */
+    private static ListNode reverse(ListNode pre,ListNode next){
+        ListNode last = pre.next;
+        ListNode cur = last.next;
+
+        while (cur != next)
+        {
+            last.next = cur.next;
+            cur.next = pre.next;
+
+            pre.next = cur;
+            cur = last.next;
+        }
+
+        return last;
     }
 }
