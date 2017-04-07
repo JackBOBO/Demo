@@ -152,7 +152,7 @@ public class ListNode {
             if (count % k == 0)
             {
                 pre = reverse(pre,cross.next);
-                cross.next = pre;
+                cross = pre.next;
             }
             else
             {
