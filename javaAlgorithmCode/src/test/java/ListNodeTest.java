@@ -7,6 +7,75 @@ import static org.junit.Assert.*;
  */
 public class ListNodeTest {
     @Test
+    public void deleteDuplicates() throws Exception {
+        ListNode input = new ListNode(1,new ListNode(1,new ListNode(1,new ListNode(2,new ListNode(2,new ListNode(3))))));
+        ListNode output = new ListNode(1,new ListNode(2,new ListNode(3)));
+
+        ListNode res = ListNode.deleteDuplicates(input);
+
+        boolean isOK = true;
+        while (output != null)
+        {
+            if (output.val != res.val)
+            {
+                isOK = false;
+                break;
+            }
+
+            output = output.next;
+            res = res.next;
+        }
+
+        assertEquals("deleteDuplicates",true,isOK);
+    }
+
+    @Test
+    public void deleteDuplicates1() throws Exception {
+        ListNode input = new ListNode(1,new ListNode(1,new ListNode(1,new ListNode(2,new ListNode(2,new ListNode(3))))));
+        ListNode output = new ListNode(3);
+
+        ListNode res = ListNode.deleteDuplicates1(input);
+
+        boolean isOK = true;
+        while (output != null)
+        {
+            if (output.val != res.val)
+            {
+                isOK = false;
+                break;
+            }
+
+            output = output.next;
+            res = res.next;
+        }
+
+        assertEquals("deleteDuplicates1",true,isOK);
+    }
+
+    @Test
+    public void partitionLinkedList() throws Exception {
+        ListNode input = new ListNode(4,new ListNode(3,new ListNode(2,new ListNode(1,new ListNode(2,new ListNode(5))))));
+        ListNode output = new ListNode(2,new ListNode(1,new ListNode(2,new ListNode(4,new ListNode(3,new ListNode(5))))));
+
+        ListNode res = ListNode.partitionLinkedList(input,3);
+
+        boolean isOK = true;
+        while (output != null)
+        {
+            if (output.val != res.val)
+            {
+                isOK = false;
+                break;
+            }
+
+            output = output.next;
+            res = res.next;
+        }
+
+        assertEquals("partitionLinkedList",true,isOK);
+    }
+
+    @Test
     public void reverseKGroup() throws Exception {
         ListNode input = new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(4,new ListNode(5)))));
         ListNode output = new ListNode(2,new ListNode(1,new ListNode(4,new ListNode(3,new ListNode(5)))));

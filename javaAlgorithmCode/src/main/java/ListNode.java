@@ -181,4 +181,85 @@ public class ListNode {
 
         return last;
     }
+
+    /*
+    *链表分区
+    * */
+    public static ListNode partitionLinkedList(ListNode head,int x){
+        ListNode dummy = new ListNode(0);
+        ListNode pivot = new ListNode(x);
+        ListNode first = dummy,second= pivot,curr= head;
+
+        while (curr != null)
+        {
+            ListNode next = curr.next;
+            if (curr.val < x)
+            {
+                first.next = curr;
+                first = curr;
+            }
+            else
+            {
+                second.next = curr;
+                second = curr;
+                second.next = null;
+            }
+
+            curr = next;
+        }
+
+        first.next = pivot.next;
+        return dummy.next;
+    }
+
+    /*
+    *链表去重
+    * */
+    public static ListNode deleteDuplicates(ListNode head)
+    {
+        if (head == null)
+            return head;
+
+        ListNode prev = head;
+        ListNode curr = head.next;
+
+        while (curr != null)
+        {
+            if (curr.val != prev.val )
+                prev = prev.next;
+
+            curr = curr.next;
+            prev.next = curr;
+
+        }
+
+        return head;
+    }
+
+    /*
+    *链表去重1
+    * */
+    public static ListNode deleteDuplicates1(ListNode head)
+    {
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+        ListNode pre = head,curr = head;
+
+        while (curr != null && curr.next != null) {
+            while (curr.next != null && curr.val == curr.next.val)
+                curr = curr.next;
+
+            if (pre == curr)
+            {
+                tail.next = pre;
+                tail = tail.next;
+            }
+
+            pre = curr.next;
+            curr = curr.next;
+        }
+
+        tail.next = curr;
+        return dummy.next;
+    }
 }
