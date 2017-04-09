@@ -28,6 +28,22 @@ public class TreeNode {
     }
 
     public static void treeToDoublyList(TreeNode p,TreeNode prev,TreeNode head){
+        if (p == null)
+            return;
 
+        treeToDoublyList(p.left,prev,head);
+
+        p.left = prev;
+        if (prev != null)
+            prev.right = p;
+        else
+            head = p;
+
+        TreeNode right = p.right;
+        head.left = p;
+        p.right = head;
+        prev = p;
+
+        treeToDoublyList(right,prev,head);
     }
 }
