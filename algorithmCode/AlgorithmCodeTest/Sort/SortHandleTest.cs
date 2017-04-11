@@ -5,7 +5,7 @@ using AlgorithmCode.Sort;
 namespace AlgorithmCodeTest.Sort
 {
     [TestClass]
-    public class SortHandleTest1
+    public class SortHandleTest
     {
         [TestMethod]
         public void QuickSort()
