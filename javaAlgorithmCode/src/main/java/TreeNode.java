@@ -27,6 +27,8 @@ public class TreeNode {
         return head;
     }
 
+    /*
+    * 二叉树转换双喜那个链表*/
     private static void treeToDoublyList(TreeNode p,TreeNode prev,TreeNode head){
         if (p == null)
             return;
@@ -47,6 +49,8 @@ public class TreeNode {
         treeToDoublyList(right,prev,head);
     }
 
+    /*
+    * 最小公共祖先*/
     public static TreeNode LCA(TreeNode root,TreeNode p,TreeNode q) {
         if (root == null || p == null || q == null)
             return null;
