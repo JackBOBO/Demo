@@ -16,4 +16,16 @@ public class TreeNodeTest {
         assertEquals("treeToDoublyList",true,true);
     }
 
+    @Test
+    public void LCATest(){
+        TreeNode res = null;
+        TreeNode root = new TreeNode(5,new TreeNode(3,new TreeNode(1),new TreeNode(4)),new TreeNode(7,null,new TreeNode(9)));
+
+        res = TreeNode.LCA(root,new TreeNode(1),new TreeNode(9));
+        assertEquals("LCATest",5,res.val);
+
+        res = TreeNode.LCA(root,new TreeNode(1),new TreeNode(4));
+        assertEquals("LCATest",3,res.val);
+    }
+
 }
