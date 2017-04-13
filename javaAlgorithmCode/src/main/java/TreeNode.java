@@ -1,5 +1,8 @@
 import apple.laf.JRSUIUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by chenlong on 2017/4/8.
  */
@@ -28,7 +31,7 @@ public class TreeNode {
     }
 
     /*
-    * 二叉树转换双喜那个链表*/
+     * 二叉树转换双喜那个链表*/
     private static void treeToDoublyList(TreeNode p,TreeNode prev,TreeNode head){
         if (p == null)
             return;
@@ -49,6 +52,35 @@ public class TreeNode {
         treeToDoublyList(right,prev,head);
     }
 
+    /*
+    * 二叉树转换双喜那个链表*/
+    public static TreeNode treeToDoublyList1(TreeNode root, TreeNode lastNode) {
+
+        if (root == null)
+
+            return lastNode;
+
+        TreeNode current = root;
+
+        if (current.left != null)
+
+            lastNode=treeToDoublyList1(current.left, lastNode);
+
+        current.left = lastNode;
+
+        if (lastNode != null)
+
+            lastNode.right = current;
+
+        lastNode = current;
+
+        if (current.right != null)
+
+            lastNode=treeToDoublyList1(current.right, lastNode);
+
+        return lastNode;
+
+    }
     /*
     * 最小公共祖先*/
     public static TreeNode LCA(TreeNode root,TreeNode p,TreeNode q) {

@@ -8,12 +8,29 @@ import static org.junit.Assert.*;
  */
 public class TreeNodeTest {
     @Test
-    public void treeToDoublyList() throws Exception {
+    public void treeToDoublyList1() throws Exception {
+
+        TreeNode output = new TreeNode(1,null,new TreeNode(3,null,new TreeNode(4,null,new TreeNode(5,null,new TreeNode(7,null,new TreeNode(9))))));
         TreeNode root = new TreeNode(5,new TreeNode(3,new TreeNode(1),new TreeNode(4)),new TreeNode(7,null,new TreeNode(9)));
 
-        TreeNode res = TreeNode.treeToDoublyList(root);
 
-        assertEquals("treeToDoublyList",true,true);
+        TreeNode last = new TreeNode(0);
+        TreeNode res = TreeNode.treeToDoublyList1(root,last);
+
+        last = last.right;
+        boolean isOK = true;
+        while (output != null)
+        {
+            if (output.val != last.val) {
+                isOK = false;
+                break;
+            }
+
+            output = output.right;
+            last = last.right;
+        }
+
+        assertEquals("treeToDoublyList",true,isOK);
     }
 
     @Test
