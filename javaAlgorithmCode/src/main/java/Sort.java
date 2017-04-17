@@ -47,17 +47,39 @@ public class Sort {
     }
 
     public static void insert(int[] arr) {
-        int i,j;
-        for (i = 2; i <= arr.length; i++) {
+        int i, j;
+        for (i = 2; i < arr.length; i++) {
             if (arr[i] < arr[i - 1]) {
                 arr[0] = arr[i];
 
-                for (j = i-1;arr[j]>arr[0];j--)
-                    arr[j+1] = arr[j];
+                for (j = i - 1; arr[j] > arr[0]; j--)
+                    arr[j + 1] = arr[j];
 
-                arr[j+1] = arr[0];
+                arr[j + 1] = arr[0];
             }
         }
+    }
+
+    public static void shell(int[] arr) {
+        int i, j;
+        int increment = arr.length;
+
+        do {
+            increment = increment / 3 + 1;
+
+            for (i = increment + 1; i < arr.length; i++) {
+                if (arr[i] < arr[i - increment]) {
+                    arr[0] = arr[i];
+
+                    for (j = i - increment; j > 0 && arr[0] < arr[j]; j -= increment) {
+                        arr[j + increment] = arr[j];
+                    }
+
+                    arr[j + increment] = arr[0];
+                }
+            }
+
+        } while (increment > 1);
     }
 
     private static void swap(int[] arr, int i, int j) {

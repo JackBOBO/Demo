@@ -48,4 +48,16 @@ public class SortTest {
         assertArrayEquals(input,output);
     }
 
+    @Test
+    public void shell() throws Exception{
+        int[] input = {0,9, 1, 5, 8, 3, 7, 4, 6, 2};
+        int[] output = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        Sort.shell(input);
+
+        input = java.util.Arrays.copyOfRange(input,1,input.length);
+
+        assertArrayEquals(input,output);
+    }
+
 }
