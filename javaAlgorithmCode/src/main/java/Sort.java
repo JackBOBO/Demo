@@ -82,6 +82,36 @@ public class Sort {
         } while (increment > 1);
     }
 
+    public static void heapSort(int[] arr) {
+        int i;
+
+        for (i = arr.length / 2; i > 0; i--)
+            heapAdjust(arr, i, arr.length);
+
+        for (i = arr.length - 1; i > 1; i--) {
+            swap(arr, 1, i);
+            heapAdjust(arr, 1, i - 1);
+        }
+    }
+
+    private static void heapAdjust(int[] arr, int s, int m) {
+        int temp, j;
+        temp = arr[s];
+
+        for (j = 2 * s; j < m; j *= 2) {
+            if (j < m && arr[j] < arr[j + 1])
+                j++;
+
+            if (temp >= arr[j])
+                break;
+
+            arr[s] = arr[j];
+            s = j;
+        }
+
+        arr[s] = temp;
+    }
+
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
