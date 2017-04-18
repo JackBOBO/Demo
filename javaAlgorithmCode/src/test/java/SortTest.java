@@ -63,9 +63,11 @@ public class SortTest {
     @Test
     public void heapSort() {
         int[] input = {0, 50, 10, 90, 30, 70, 40, 80, 60, 20};
-        int[] output = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+        int[] output = {10, 20, 30, 40, 50, 60, 70, 80, 90};
 
         Sort.heapSort(input);
+
+        input = java.util.Arrays.copyOfRange(input, 1, input.length);
 
         assertArrayEquals(input, output);
     }
