@@ -88,7 +88,7 @@ public class Sort {
         for (i = arr.length / 2; i > 0; i--)
             heapAdjust(arr, i, arr.length);
 
-        for (i = arr.length - 1; i > 1; i--) {
+        for (i = arr.length - 1; i > 2; i--) {
             swap(arr, 1, i);
             heapAdjust(arr, 1, i - 1);
         }
@@ -110,6 +110,43 @@ public class Sort {
         }
 
         arr[s] = temp;
+    }
+
+    public static void mergeSort(int[] arr) {
+        mSort(arr, arr, 1, arr.length-1);
+    }
+
+    private static void mSort(int[] sr, int[] tr1, int s, int t) {
+        int m;
+        int[] tr2 = new int[20];
+        if (s == t) {
+            tr1[s] = sr[s];
+        } else {
+            m = (s + t) / 2;
+            mSort(sr, tr2, s, m);
+            mSort(sr, tr2, m + 1, t);
+            merge(tr2, tr1, s, m, t);
+        }
+    }
+
+    private static void merge(int[] sr, int[] tr, int i, int m, int n) {
+        int j, k, l;
+        for (j = m + 1, k = i; i < m && j < n; j++) {
+            if (sr[i] < sr[j])
+                tr[k] = sr[i++];
+            else
+                tr[k] = sr[j++];
+        }
+
+        if (i < m) {
+            for (l = 0; l < m - i; l++)
+                tr[k + 1] = sr[i + 1];
+        }
+
+        if (j < m) {
+            for (l = 0; l < m - j; l++)
+                tr[k + 1] = sr[j + 1];
+        }
     }
 
     private static void swap(int[] arr, int i, int j) {
