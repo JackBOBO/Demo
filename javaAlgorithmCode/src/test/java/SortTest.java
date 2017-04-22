@@ -89,4 +89,14 @@ public class SortTest {
         assertArrayEquals(input, output);
     }
 
+    @Test
+    public void quickSort(){
+        int[] input = {50, 10, 90, 30, 70, 40, 80, 60, 20};
+        int[] output = {10, 20, 30, 40, 50, 60, 70, 80, 90};
+
+        Sort.quickSort(input);
+
+        assertArrayEquals(input, output);
+    }
+
 }

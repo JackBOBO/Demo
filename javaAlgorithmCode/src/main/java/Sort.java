@@ -113,7 +113,7 @@ public class Sort {
     }
 
     public static void mergeSort(int[] arr) {
-        mSort(arr, arr, 1, arr.length-1);
+        mSort(arr, arr, 1, arr.length - 1);
     }
 
     private static void mSort(int[] sr, int[] tr1, int s, int t) {
@@ -147,6 +147,37 @@ public class Sort {
             for (l = 0; l < m - j; l++)
                 tr[k + 1] = sr[j + 1];
         }
+    }
+
+    public static void quickSort(int[] arr) {
+        qSort(arr, 0, arr.length);
+    }
+
+    private static void qSort(int[] arr, int low, int high) {
+        int pivot;
+        if (low < high) {
+            pivot = partition(arr, low, high-1);
+
+            qSort(arr, low, pivot );
+            qSort(arr, pivot + 1, high-1);
+        }
+    }
+
+    private static int partition(int[] arr, int low, int high) {
+        int pivotKey = arr[low];
+        while (high > low) {
+            while (low < high && arr[high] >= pivotKey)
+                high--;
+
+            swap(arr, low, high);
+
+            while (low < high && arr[low] <= pivotKey)
+                low++;
+
+            swap(arr, low, high);
+        }
+
+        return low;
     }
 
     private static void swap(int[] arr, int i, int j) {
