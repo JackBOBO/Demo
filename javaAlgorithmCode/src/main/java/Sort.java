@@ -113,12 +113,12 @@ public class Sort {
     }
 
     public static void mergeSort(int[] arr) {
-        mSort(arr, arr, 1, arr.length - 1);
+        mSort(arr, arr, 1, arr.length - 2);
     }
 
     private static void mSort(int[] sr, int[] tr1, int s, int t) {
         int m;
-        int[] tr2 = new int[20];
+        int[] tr2 = new int[sr.length];
         if (s == t) {
             tr1[s] = sr[s];
         } else {
@@ -131,41 +131,42 @@ public class Sort {
 
     private static void merge(int[] sr, int[] tr, int i, int m, int n) {
         int j, k, l;
-        for (j = m + 1, k = i; i < m && j < n; j++) {
+
+        for (j = m + 1, k = i; i <= m && j <= n; k++) {
             if (sr[i] < sr[j])
                 tr[k] = sr[i++];
             else
                 tr[k] = sr[j++];
         }
 
-        if (i < m) {
-            for (l = 0; l < m - i; l++)
+        if (i <= m) {
+            for (l = 0; l <= m - i; l++)
                 tr[k + 1] = sr[i + 1];
         }
 
-        if (j < m) {
-            for (l = 0; l < m - j; l++)
+        if (j <= n) {
+            for (l = 0; l <= n - j; l++)
                 tr[k + 1] = sr[j + 1];
         }
     }
 
     public static void quickSort(int[] arr) {
-        qSort(arr, 0, arr.length);
+        qSort(arr, 0, arr.length - 1);
     }
 
     private static void qSort(int[] arr, int low, int high) {
         int pivot;
         if (low < high) {
-            pivot = partition(arr, low, high-1);
+            pivot = partition(arr, low, high);
 
-            qSort(arr, low, pivot );
-            qSort(arr, pivot + 1, high-1);
+            qSort(arr, low, pivot - 1);
+            qSort(arr, pivot + 1, high);
         }
     }
 
     private static int partition(int[] arr, int low, int high) {
         int pivotKey = arr[low];
-        while (high > low) {
+        while (low < high) {
             while (low < high && arr[high] >= pivotKey)
                 high--;
 
