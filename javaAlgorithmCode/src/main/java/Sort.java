@@ -113,7 +113,7 @@ public class Sort {
     }
 
     public static void mergeSort(int[] arr) {
-        mSort(arr, arr, 1, arr.length - 2);
+        mSort(arr, arr, 0, arr.length - 1);
     }
 
     private static void mSort(int[] sr, int[] tr1, int s, int t) {
@@ -141,12 +141,12 @@ public class Sort {
 
         if (i <= m) {
             for (l = 0; l <= m - i; l++)
-                tr[k + 1] = sr[i + 1];
+                tr[k + l] = sr[i + l];
         }
 
         if (j <= n) {
             for (l = 0; l <= n - j; l++)
-                tr[k + 1] = sr[j + 1];
+                tr[k + l] = sr[j + l];
         }
     }
 
