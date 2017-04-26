@@ -150,6 +150,34 @@ public class Sort {
         }
     }
 
+    public static void mergeSort2(int[] arr) {
+        int[] tr = new int[100];
+        int k = 1;
+        while (k < arr.length) {
+            mergePass(arr, tr, k, arr.length-1);
+            k = 2 * k;
+            mergePass(tr, arr, k, arr.length-1);
+            k = 2 * k;
+        }
+    }
+
+    private static void mergePass(int[] sr, int[] tr, int s, int n) {
+        int i = 1;
+        int j;
+        while (i < n - 2 * s + 1) {
+            merge(sr, tr, i, i + s - 1, i + 2 * s + 1);
+            i = i + 2 * s;
+        }
+
+        if (i < n - s + 1) {
+            merge(sr, tr, i, i + s - 1, n);
+        } else {
+            for (j = i; j <= n; j++) {
+                tr[j] = sr[j];
+            }
+        }
+    }
+
     public static void quickSort(int[] arr) {
         qSort(arr, 0, arr.length - 1);
     }
@@ -180,6 +208,7 @@ public class Sort {
 
         return low;
     }
+
 
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];

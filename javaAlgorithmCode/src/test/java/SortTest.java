@@ -85,6 +85,7 @@ public class SortTest {
         int[] output = {10, 20, 30, 40, 50, 60, 70, 80, 90};
 
         Sort.mergeSort(input);
+        //Sort.mergeSort2(input);
 
         assertArrayEquals(input, output);
     }

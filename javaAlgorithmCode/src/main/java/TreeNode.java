@@ -31,7 +31,7 @@ public class TreeNode {
     }
 
     /*
-     * 二叉树转换双喜那个链表*/
+     * 二叉树转换双向那个链表*/
     private static void treeToDoublyList(TreeNode p,TreeNode prev,TreeNode head){
         if (p == null)
             return;
