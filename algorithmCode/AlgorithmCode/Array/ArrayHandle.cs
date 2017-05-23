@@ -298,5 +298,69 @@ namespace AlgorithmCode.Array
             return index;
         }
 
+        public static int[] getTopKII(int[] data, int k)
+        {
+
+            int start = 0, end = data.Length - 1;
+            int last = -1;
+            int currSum = 0;
+
+            int index = Partition(data, start, end, ref currSum);
+
+            while (index >= 0)
+            {
+                if (currSum >= k)
+                {
+                    last = index;
+                    end = index - 1;
+                    index = Partition(data, start, end, ref currSum);
+                }
+                else
+                {
+                    start = index + 1;
+                    k = k - currSum;
+                    index = Partition(data, start, end, ref currSum);
+                }
+            }
+
+            int[] res = new int[last + 1];
+            for (int i = 0; i <= last; i++)
+                res[i] = data[i];
+
+            return res;
+        }
+
+        private static int Partition(int[] data, int start, int end, ref int currSum)
+        {
+            if (start > end)
+                return -1;
+
+            int index = start;
+
+            int tmp = data[index];
+            data[index] = data[end];
+            data[end] = tmp;
+
+            for (int i = start; i < end; i++)
+            {
+                if (data[i] <= data[end])
+                {
+                    if (i != index)
+                    {
+                        tmp = data[index];
+                        data[index] = data[i];
+                        data[i] = tmp;
+                    }
+
+                    index++;
+                }
+            }
+
+            tmp = data[end];
+            data[end] = data[index];
+            data[index] = tmp;
+
+            return index;
+        }
     }
 }
