@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACM\Maze.cs" />
     <Compile Include="Array\ArrayHandle.cs" />
     <Compile Include="Array\Interval.cs" />
     <Compile Include="LinkedList\ListNode.cs" />

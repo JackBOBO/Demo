@@ -1,4 +1,5 @@
-﻿using AlgorithmCode.Array;
+﻿using AlgorithmCode.ACM;
+using AlgorithmCode.Array;
 using AlgorithmCode.Tree;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace AlgorithmCode
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(Maze.Solve());
         }
     }
 }
