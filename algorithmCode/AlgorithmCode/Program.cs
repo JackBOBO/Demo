@@ -13,7 +13,9 @@ namespace AlgorithmCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Maze.Solve());
+            int res = Maze.Solve();
+            Console.WriteLine("");
+            Console.WriteLine("Shortest path:"+ res.ToString());
         }
     }
 }

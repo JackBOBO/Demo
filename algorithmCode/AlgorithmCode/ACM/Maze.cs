@@ -14,7 +14,7 @@ namespace AlgorithmCode.ACM
 
         static int M = 10;
 
-        static  int INF = 1000000000;
+        static int INF = 1000000000;
 
         static char[,] MAZE = {
             { '#', 's', '#', '#', '#', '#', '#', '#', '.', '#' },
@@ -31,7 +31,7 @@ namespace AlgorithmCode.ACM
 
         static int[,] D = new int[10, 10];
 
-        static int sx = 1, sy = 0, gx = 8, gy = 9;
+        static int sx = 0, sy = 1, gx = 9, gy = 8;
 
         static int[] dx = { 1, 0, -1, 0 };
         static int[] dy = { 0, 1, 0, -1 };
@@ -77,8 +77,21 @@ namespace AlgorithmCode.ACM
             return D[gx, gy];
         }
 
-        public static int Solve() {
-           return BFS();
+        public static int Solve()
+        {
+            var res = BFS();
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Console.Write((D[i, j] == INF ? "##" : D[i, j] < 10 ? "0"+D[i, j].ToString() : D[i, j].ToString()) + (j == 9?"":","));
+                }
+
+                Console.WriteLine("");
+            }
+
+
+            return res;
         }
     }
 
