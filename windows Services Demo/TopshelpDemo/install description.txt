@@ -1,0 +1,4 @@
+﻿安装：TopshelpDemo.exe install
+启动：TopshelpDemo.exe start
+启动：TopshelpDemo.exe stop
+卸载：TopshelpDemo.exe uninstall
