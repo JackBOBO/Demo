@@ -44,7 +44,7 @@ namespace TopshelpDemo
                 x.SetDisplayName("QuartzDemo DisplayName");
                 x.SetServiceName("QuartzDemo ServiceName");
 
-                x.EnablePauseAndContinue();
+                //x.EnablePauseAndContinue();
             });
         }
     }
