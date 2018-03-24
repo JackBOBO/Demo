@@ -72,16 +72,16 @@ public class ListNode {
     /**
      * 反转链表
      */
-    public static ListNode reverse(ListNode head){
-        if (head == null || head.next == null)
-            return head;
+    public static ListNode reverse(ListNode node){
+        if(node.next==null)
+            return node;
 
-        ListNode temp = ListNode.reverse(head.next);
+        ListNode next = node.next;
+        node.next = null;
+        ListNode re = reverse(next);
+        next.next = node;
 
-        head.next = head;
-        head.next = null;
-
-        return temp;
+        return re;
     }
 
     /*

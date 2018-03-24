@@ -159,4 +159,29 @@ public class ListNodeTest {
         assertEquals("mergeTowList",true,isOK);
     }
 
+    @Test
+    public void reverse() throws Exception{
+        ListNode intput = new ListNode(1,new ListNode(2,new ListNode(3)));
+
+        ListNode output = new ListNode(3,new ListNode(2,new ListNode(1)));
+
+
+        ListNode res = ListNode.reverse(intput);
+
+        boolean isOK = true;
+        while (res != null)
+        {
+            if(res.val != output.val)
+            {
+                isOK = false;
+                break;
+            }
+
+            res = res.next;
+            output = output.next;
+
+        }
+
+    }
+
 }
